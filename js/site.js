@@ -5,7 +5,6 @@ var name, link, image, li, a1, a2, img, div, span, nameText;
 var ul = document.getElementById('students');
 
 if($('body').is('#page_home')) {
-    alert('hello');
     for(var i = 0; i < students.length; i++) {
         name = students[i]['Name'];
         link = 'https://' + students[i]['URL'];
@@ -62,5 +61,6 @@ if($('body').is('#page_home')) {
 
 $(document).ready(function() {
     setTimeout(function () {$('header').addClass('active');}, 300);
-    setTimeout(function () {$('#students').addClass('active');}, 600);
+    setTimeout(function () {$('footer').addClass('active');}, 500);
+    setTimeout(function () {$('#students, #resources').addClass('active');}, 800);
 });

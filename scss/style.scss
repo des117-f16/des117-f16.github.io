@@ -127,6 +127,13 @@ header {
         font-weight: 300;
         line-height: 35px;
     }
+
+    &.active {
+        &>div {
+            opacity: 1;
+            transform: translateX(0px);
+        }
+    } // end &.active
 } // end header
 
 #students {
@@ -234,22 +241,25 @@ header {
             transform: translate(-50%, -50%);
         }
     }
+
+    &.active {
+        .student {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    } // end &.active
 } // end .student
 
+footer {
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.5s;
+    transform: translateY(30px);
 
-header.active {
-    &>div {
-        opacity: 1;
-        transform: translateX(0px);
-    }
-} // end header.active
-
-#students.active {
-    .student {
+    &.active {
         opacity: 1;
         transform: translateY(0px);
     }
-} // end #students.active
+}
 
 @media (max-width: 1000px) {
     .wrapper {
