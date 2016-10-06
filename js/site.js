@@ -6,7 +6,7 @@ var ul = document.getElementById('students');
 
 for(var i = 0; i < students.length; i++) {
     name = students[i]['Name'];
-    link = 'http://' + students[i]['URL'];
+    link = 'https://' + students[i]['URL'];
 
     li = document.createElement('li');
     a1 = document.createElement('a');
