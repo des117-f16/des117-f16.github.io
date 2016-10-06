@@ -4,7 +4,7 @@ var students = [{"Name":"Chau, Victoria","URL":"vchau2.github.io"},{"Name":"Chen
 var name, link, image, li, a1, a2, img, div, span, nameText;
 var ul = document.getElementById('students');
 
-if($('body#page_home')) {
+if($('body').is('#page_home')) {
     for(var i = 0; i < students.length; i++) {
         name = students[i]['Name'];
         link = 'https://' + students[i]['URL'];
