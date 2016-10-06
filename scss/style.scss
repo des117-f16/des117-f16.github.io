@@ -138,7 +138,14 @@ header {
 
 #students {
     margin-left: -20px;
-}
+
+    &.active {
+        .student {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    } // end &.active
+} // end #students
 
 .student {
     display: inline-block;
@@ -241,13 +248,6 @@ header {
             transform: translate(-50%, -50%);
         }
     }
-
-    &.active {
-        .student {
-            opacity: 1;
-            transform: translateY(0px);
-        }
-    } // end &.active
 } // end .student
 
 footer {
