@@ -5,6 +5,7 @@ var name, link, image, li, a1, a2, img, div, span, nameText;
 var ul = document.getElementById('students');
 
 if($('body').is('#page_home')) {
+    alert('hello');
     for(var i = 0; i < students.length; i++) {
         name = students[i]['Name'];
         link = 'https://' + students[i]['URL'];
