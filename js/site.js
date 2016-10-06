@@ -4,57 +4,59 @@ var students = [{"Name":"Chau, Victoria","URL":"vchau2.github.io"},{"Name":"Chen
 var name, link, image, li, a1, a2, img, div, span, nameText;
 var ul = document.getElementById('students');
 
-for(var i = 0; i < students.length; i++) {
-    name = students[i]['Name'];
-    link = 'https://' + students[i]['URL'];
+if($('body#page_home')) {
+    for(var i = 0; i < students.length; i++) {
+        name = students[i]['Name'];
+        link = 'https://' + students[i]['URL'];
 
-    li = document.createElement('li');
-    a1 = document.createElement('a');
-    a2 = document.createElement('a');
-    img = document.createElement('div');
-    div = document.createElement('div');
-    span = document.createElement('span');
+        li = document.createElement('li');
+        a1 = document.createElement('a');
+        a2 = document.createElement('a');
+        img = document.createElement('div');
+        div = document.createElement('div');
+        span = document.createElement('span');
 
-    image = findImage(img, link);
+        image = findImage(img, link);
 
-    div.setAttribute('class', 'inner');
-    li.setAttribute('class', 'student');
-    a1.setAttribute('class', 'link');
-    a1.setAttribute('href', link);
-    a1.setAttribute('target','_blank');
-    a2.setAttribute('class', 'name');
-    a2.setAttribute('href', link);
-    a2.setAttribute('target','_blank');
-    span.setAttribute('class', 'btn view');
+        div.setAttribute('class', 'inner');
+        li.setAttribute('class', 'student');
+        a1.setAttribute('class', 'link');
+        a1.setAttribute('href', link);
+        a1.setAttribute('target','_blank');
+        a2.setAttribute('class', 'name');
+        a2.setAttribute('href', link);
+        a2.setAttribute('target','_blank');
+        span.setAttribute('class', 'btn view');
 
-    a2.appendChild(document.createTextNode(name));
-    span.appendChild(document.createTextNode('VIEW'));
-    a1.appendChild(img);
-    a1.appendChild(span);
-    div.appendChild(a1);
-    div.appendChild(a2);
-    li.appendChild(div);
-    ul.appendChild(li);
-}
+        a2.appendChild(document.createTextNode(name));
+        span.appendChild(document.createTextNode('VIEW'));
+        a1.appendChild(img);
+        a1.appendChild(span);
+        div.appendChild(a1);
+        div.appendChild(a2);
+        li.appendChild(div);
+        ul.appendChild(li);
+    }
 
-function findImage(elem, url) {
-    var imageUrl;
-    $.ajax({
-        url: url,
-        success: function(data) {
-            var html = $.parseHTML( data ),
-                img = $(html).find("img"),
-                len = img.length;
-            if(len > 0){
-                var src = img.first().attr("src");
-            } else {
-                console.log("Image not found");
+    function findImage(elem, url) {
+        var imageUrl;
+        $.ajax({
+            url: url,
+            success: function(data) {
+                var html = $.parseHTML( data ),
+                    img = $(html).find("img"),
+                    len = img.length;
+                if(len > 0){
+                    var src = img.first().attr("src");
+                } else {
+                    console.log("Image not found");
+                }
+                imageUrl = url + '/' + src;
+                elem.setAttribute('class', 'bg');
+                elem.setAttribute('style', 'background-image: url(' + imageUrl +')');
             }
-            imageUrl = url + '/' + src;
-            elem.setAttribute('class', 'bg');
-            elem.setAttribute('style', 'background-image: url(' + imageUrl +')');
-        }
-    });
+        });
+    }
 }
 
 $(document).ready(function() {
