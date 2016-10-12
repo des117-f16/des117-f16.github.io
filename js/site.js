@@ -44,7 +44,7 @@ if($('body').is('#page_home')) {
             url: url,
             success: function(data) {
                 var html = $.parseHTML( data ),
-                    img = $('header[role="banner"]').find("img"),
+                    img = $(html).find("img"),
                     len = img.length;
                 if(len > 0){
                     var src = img.first().attr("src");
